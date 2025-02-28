@@ -1,0 +1,279 @@
+/* Reset Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+/* Light Mode */
+.light-mode {
+    background: #f5f5f5;
+    color: #333;
+}
+
+.light-mode .weather-box {
+    background: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.light-mode .sidebar {
+    background: white;
+    border-right: 1px solid #ddd;
+}
+
+.light-mode .toggle-btn {
+    background: #ddd;
+    color: #333;
+}
+
+/* Dark Mode */
+.dark-mode {
+    background: #121212;
+    color: #eee;
+}
+
+.dark-mode .weather-box {
+    background: #1e1e1e;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .sidebar {
+    background: #1a1a1a;
+    border-right: 1px solid #333;
+}
+
+.dark-mode .toggle-btn {
+    background: #333;
+    color: #eee;
+}
+
+/* Full-Screen Background */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(45deg, #1c1c1c, #2a2a2a);
+    color: white;
+    transition: background 0.5s ease-in-out;
+}
+
+/* Futuristic Preloader (Spins & Scales) */
+#preloader {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+#preloader i {
+    font-size: 50px;
+    color: cyan;
+    animation: spinScale 1.5s infinite alternate;
+}
+
+/* Keyframes for Spinning & Scaling */
+@keyframes spinScale {
+    0% { transform: scale(1) rotate(0deg); opacity: 0.5; }
+    50% { transform: scale(1.3) rotate(180deg); opacity: 1; }
+    100% { transform: scale(1.6) rotate(360deg); opacity: 0.5; }
+}
+
+/* User Initial (Top Left) */
+#userInitial {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 40px;
+    height: 40px;
+    background: cyan;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+#userInitial:hover {
+    transform: scale(1.2);
+}
+
+/* Sidebar */
+#sidebar {
+    position: fixed;
+    left: -250px;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    background: linear-gradient(45deg, #0f0c29, #302b63, #24243e);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+    border-right: 3px solid cyan;
+    padding-top: 50px;
+    transition: left 0.6s ease-in-out, box-shadow 0.4s ease-in-out;
+    z-index: 999;
+}
+
+/* When Sidebar is Active (Visible) */
+#sidebar.active {
+    left: 0;
+    box-shadow: 0 0 40px rgba(0, 255, 255, 1);
+}
+
+/* Sidebar Items */
+#sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+#sidebar ul li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    text-align: left;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+}
+
+#sidebar ul li i {
+    font-size: 20px;
+    color: cyan;
+    transition: color 0.3s ease-in-out;
+}
+
+#sidebar ul li:hover {
+    transform: scale(1.1);
+    background: rgba(0, 255, 255, 0.2);
+    box-shadow: 0 0 15px cyan;
+}
+
+#sidebar ul li:hover i {
+    color: white;
+}
+
+/* Sidebar Close Button */
+#closeSidebar {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: red;
+    color: white;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    border-radius: 50%;
+    padding: 5px 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+#closeSidebar:hover {
+    transform: rotate(180deg);
+}
+
+/* Mobile Sidebar */
+@media (max-width: 600px) {
+    #closeSidebar {
+        display: block;
+    }
+}
+
+/* Login & Signup Page */
+#auth-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+}
+
+#auth-container input {
+    padding: 10px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#auth-container button {
+    padding: 10px;
+    background: cyan;
+    color: black;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    transition: transform 0.3s ease-in-out;
+}
+
+#auth-container button:hover {
+    transform: scale(1.1);
+}
+
+/* Weather Dashboard */
+#main-container {
+    text-align: center;
+}
+
+.weather-header {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.weather-header input {
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    border: none;
+}
+
+.weather-header button {
+    padding: 10px;
+    background: cyan;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.weather-header button:hover {
+    transform: scale(1.1);
+}
+
+/* Weather Box */
+.weather-box {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.weather-box i {
+    font-size: 50px;
+    color: cyan;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Hidden Class */
+.hidden {
+    display: none;
+}

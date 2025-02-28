@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ap Weather App</title>
+    <meta name="description" content="Ap weather app , very clean and nice.Download our app to get tge best out of us">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Link to External CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <!-- Futuristic Preloader -->
+    <div id="preloader">
+        <i class="fas fa-spinner fa-spin"></i>
+    </div>
+
+    <!-- User Initial at Top Left (Clickable to Open Sidebar) -->
+    <div id="userInitial" onclick="toggleSidebar()"></div>
+
+    <!-- Sidebar (Animated) -->
+    <div id="sidebar">
+        <button id="closeSidebar" onclick="toggleSidebar()">
+            <i class="fas fa-times"></i>
+        </button>
+        <ul>
+            <li onclick="toggleTheme('light')"><i class="fas fa-sun"></i> Light Mode</li>
+            <li onclick="toggleTheme('dark')"><i class="fas fa-moon"></i> Dark Mode</li>
+            <li onclick="toggleTheme('system')"><i class="fas fa-desktop"></i> System Mode</li>
+            <li onclick="editProfile()"><i class="fas fa-user-edit"></i> Edit Profile</li>
+        </ul>
+    </div>
+
+    <!-- Authentication Container -->
+    <div id="auth-container">
+        <h2 id="auth-title">Login</h2>
+        <form id="authForm">
+            <input type="text" id="username" placeholder="Enter your name" required>
+            <input type="password" id="password" placeholder="Enter password" required>
+            <button type="button" id="startBtn" onclick="authenticate()">Start</button>
+        </form>
+        <p id="toggleAuth">Don't have an account? <span onclick="switchAuth()">Sign up</span></p>
+    </div>
+
+    <!-- Weather Dashboard -->
+    <div id="main-container" class="hidden">
+        <div class="weather-header">
+            <input type="text" id="cityInput" placeholder="Search city...">
+            <button onclick="getWeather(document.getElementById('cityInput').value)">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+
+        <div class="weather-box">
+            <i id="weatherIcon" class="fas fa-cloud"></i>
+            <h1 id="temperature">--°C</h1>
+            <h2 id="weatherCondition">Loading...</h2>
+            <p id="location">--</p>
+        </div>
+    </div>
+
+    <!-- Link to External JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>

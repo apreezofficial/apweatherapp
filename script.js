@@ -117,10 +117,22 @@ async function fetchWeather(url) {
             return;
         }
 
-        document.getElementById("location").innerText = data.name;
-        document.getElementById("temperature").innerText = `${data.main.temp}°C`;
-        document.getElementById("weatherCondition").innerText = data.weather[0].description;
+        document.getElementById("location").innerHTML = data.name;
+        document.getElementById("temperature").innerHTML = `${data.main.temp}°C`;
+        document.getElementById("feelsLike").innerHTML = `<b>Feels like:</b> ${data.main.feels_like}°C`;
         
+        document.getElementById("weatherCondition").innerHTML = data.weather[0].description;
+        document.getElementById("humidity").innerHTML = `<b>Humidity:</b> ${data.main.humidity}%`;
+        document.getElementById("windSpeed").innerHTML = `<b>Wind Speed:</b> ${data.wind.speed} km/h`;
+        document.getElementById("pressure").innerHTML = `<b>Pressure:</b> ${data.main.pressure} hPa`;
+
+        // Convert sunrise & sunset timestamps
+        let sunriseTime = new Date(data.sys.sunrise * 1000).toLocaleTimeString();
+        let sunsetTime = new Date(data.sys.sunset * 1000).toLocaleTimeString();
+
+        document.getElementById("sunrise").innerHTML = `<b>Sunrise:</b> ${sunriseTime}`;
+        document.getElementById("sunset").innerHTML = `<b>Sunset:</b> ${sunsetTime}`;
+
         let weatherIcon = document.getElementById("weatherIcon");
         let body = document.body;
 

@@ -6,8 +6,8 @@ window.onload = function () {
     }, 2000);
 };
 
-// API Key (Replace with your OpenWeatherMap API key)
-const API_KEY = "7e060c8f07483df91dc1c18fa14a5043"; // Replace this with your actual API key
+// API Key (abeg no use my key oh 😂)
+const API_KEY = "7e060c8f07483df91dc1c18fa14a5043";
 
 // Check if user is logged in
 function checkAuth() {
